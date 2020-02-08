@@ -15,7 +15,7 @@ import random
 
 
 
-token = "NjM2NjM1MDY1NDUwNzU4MTc0.XbH_fw.Apj2cCzGIR1Yu4tfcgS_WX2aPzg"
+token = {{token}}
 
 my_guild = "My Dome"
 
@@ -42,7 +42,7 @@ async def dictionary(ctx,term):
     conn = http.client.HTTPSConnection("mashape-community-urban-dictionary.p.rapidapi.com")
     headers = {
     'x-rapidapi-host': "mashape-community-urban-dictionary.p.rapidapi.com",
-    'x-rapidapi-key': "da4a52f89fmshc2b5e9799146441p100937jsn02c9fc45bc4d"
+    'x-rapidapi-key': {{api_key}}
     }
     conn.request("GET", f"/define?term={term}", headers=headers)
     res = conn.getresponse()
@@ -72,7 +72,7 @@ async def create_channel(ctx,channel_name="python"):
 async def on_command_error(ctx,error):
 
     if isinstance(error,commands.error.CheckFailure):
-        await ctx.send('You do noot have the correct role for this command')
+        await ctx.send('You do not have the correct role for this command')
 
 bot.run(token)
 
